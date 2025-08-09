@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enes & Ceyda</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #1b2838;
+        color: #c7d5e0;
+    }
+    header {
+        background-color: #171a21;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+    .container {
+        display: flex;
+        max-width: 900px;
+        margin: 20px auto;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .left-panel {
+        flex: 1;
+        min-width: 300px;
+    }
+    .cover {
+        width: 100%;
+        border: 2px solid #000;
+    }
+    .game-info {
+        background-color: #2a475e;
+        padding: 15px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+    .game-info h2 {
+        margin: 0;
+        font-size: 22px;
+        color: #fff;
+    }
+    .playtime {
+        margin-top: 8px;
+        font-size: 16px;
+        color: #66c0f4;
+    }
+    .achievements {
+        margin-top: 20px;
+        background-color: #2a475e;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    .achievements h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #fff;
+    }
+    .achievement {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #1b2838;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        border-radius: 4px;
+    }
+    .achievement-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .achievement img {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+    }
+    .achievement span {
+        font-size: 14px;
+        color: #c7d5e0;
+    }
+    .achievement-date {
+        font-size: 12px;
+        color: #66c0f4;
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="left-panel">
+        <img class="cover" src="https://uploads.onecompiler.io/43t6rbp3k/43t6r7akr/52c4d4f1-64f0-41f2-818f-feccf2307e42.jpeg" alt="Kapak Fotoğrafı">
+
+        <div class="game-info">
+            <h2>İlişki Profili</h2>
+            <div class="playtime">Birlikte geçen süre: <span id="timeTogether">Hesaplanıyor...</span></div>
+            <span>(Birlikte nice yıllara)</span>
+        </div>
+
+        <div class="achievements">
+            <h3>Başarılar</h3>
+            <div class="achievement">
+                <div class="achievement-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+                    <span>Yıldızlar</span>
+                </div>
+                <div class="achievement-date">5 Temmuz 2025</div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+                    <span>İlk Öpüşme</span>
+                </div>
+                <div class="achievement-date">11 Temmuz 2025</div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+                    <span>Sevgili Olma</span>
+                </div>
+                <div class="achievement-date">31 Temmuz 2025</div>
+            </div>
+            <div class="achievement">
+                <div class="achievement-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="">
+                    <span>:)</span>
+                </div>
+                <div class="achievement-date">7 Ağustos 2025</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTimer() {
+        const startDate = new Date(2025, 6, 5); // 6 = Temmuz
+        const now = new Date();
+
+        let years = now.getFullYear() - startDate.getFullYear();
+        let months = now.getMonth() - startDate.getMonth();
+        let days = now.getDate() - startDate.getDate();
+
+        if (days < 0) {
+            months--;
+            let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+            days += prevMonth.getDate();
+        }
+        if (months < 0) {
+            months += 12;
+            years--;
+        }
+
+        document.getElementById("timeTogether").innerText =
+            `${years} yıl, ${months} ay, ${days} gün`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
+</body>
+</html>
